@@ -68,7 +68,7 @@ public class UserRepositoryImpl implements UserRepository {
             throw new EtAuthException("Invalid email/password");
         }
         User user = users.get(0);
-        if (!BCrypt.checkpw(password, user.getPassword())) {
+        if (!BCrypt.checkpw(password, user.password())) {
             throw new EtAuthException("Invalid email/password");
         }
         return user;

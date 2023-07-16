@@ -114,8 +114,8 @@ public class CategoryRepositoryImpl implements CategoryRepository {
         try {
             int count = jdbcTemplate.update(connection -> {
                 PreparedStatement ps = connection.prepareStatement(SQL_UPDATE);
-                ps.setString(1, category.getTitle());
-                ps.setString(2, category.getDescription());
+                ps.setString(1, category.title());
+                ps.setString(2, category.description());
                 ps.setInt(3, userId);
                 ps.setInt(4, categoryId);
                 return ps;

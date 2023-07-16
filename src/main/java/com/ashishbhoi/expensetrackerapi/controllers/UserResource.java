@@ -51,10 +51,10 @@ public class UserResource {
         String token = Jwts.builder().signWith(SignatureAlgorithm.HS256, Constants.API_SECRET_KEY)
                 .setIssuedAt(new Date(timestamp))
                 .setExpiration(new Date(timestamp + Constants.TOKEN_VALIDITY))
-                .claim("userId", user.getUserId())
-                .claim("firstName", user.getFirstName())
-                .claim("lastName", user.getLastName())
-                .claim("email", user.getEmail())
+                .claim("userId", user.userId())
+                .claim("firstName", user.firstName())
+                .claim("lastName", user.lastName())
+                .claim("email", user.email())
                 .compact();
         Map<String, String> map = new HashMap<>();
         map.put("token", token);

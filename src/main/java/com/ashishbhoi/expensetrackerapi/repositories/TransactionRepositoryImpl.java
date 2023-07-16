@@ -112,9 +112,9 @@ public class TransactionRepositoryImpl implements TransactionRepository {
         try {
             int count = jdbcTemplate.update(connection -> {
                 PreparedStatement ps = connection.prepareStatement(SQL_UPDATE);
-                ps.setDouble(1, transaction.getAmount());
-                ps.setString(2, transaction.getNote());
-                ps.setLong(3, transaction.getTransactionDate());
+                ps.setDouble(1, transaction.amount());
+                ps.setString(2, transaction.note());
+                ps.setLong(3, transaction.transactionDate());
                 ps.setInt(4, userId);
                 ps.setInt(5, categoryId);
                 ps.setInt(6, transactionId);
