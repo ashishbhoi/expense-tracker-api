@@ -39,12 +39,10 @@ public class TransactionResource {
     @PostMapping("")
     public ResponseEntity<Transaction> addTransaction(HttpServletRequest request,
                                                       @PathVariable("categoryId") Integer categoryId,
-                                                      @RequestBody Map<String, Object> transactionMap) {
+                                                      @RequestBody Transaction transactionMap) {
         int userId = (Integer) request.getAttribute("userId");
-        double amount = Double.parseDouble(transactionMap.get("amount").toString());
-        String note = (String) transactionMap.get("note");
-        long transactionDate = Long.parseLong(transactionMap.get("transactionDate").toString());
-        Transaction transaction = transactionService.addTransaction(userId, categoryId, amount, note, transactionDate);
+        Transaction transaction = transactionService.addTransaction(userId, categoryId, transactionMap.amount(),
+                transactionMap.note(), transactionMap.transactionDate());
         return new ResponseEntity<>(transaction, HttpStatus.CREATED);
     }
 

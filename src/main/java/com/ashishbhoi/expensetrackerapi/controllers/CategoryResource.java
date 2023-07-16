@@ -37,11 +37,9 @@ public class CategoryResource {
 
     @PostMapping("")
     public ResponseEntity<Category> addCategory(HttpServletRequest request,
-                                                @RequestBody Map<String, Object> categoryMap) {
+                                                @RequestBody Category categoryMap) {
         int userId = (Integer) request.getAttribute("userId");
-        String title = (String) categoryMap.get("title");
-        String description = (String) categoryMap.get("description");
-        Category category = categoryService.addCategory(userId, title, description);
+        Category category = categoryService.addCategory(userId, categoryMap.title(), categoryMap.description());
         return new ResponseEntity<>(category, HttpStatus.CREATED);
     }
 

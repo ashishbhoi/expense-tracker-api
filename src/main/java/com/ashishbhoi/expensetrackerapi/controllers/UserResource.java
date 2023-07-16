@@ -27,22 +27,15 @@ public class UserResource {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<Map<String, String>> loginUser(@RequestBody Map<String, Object> userMap) {
-        String email = (String) userMap.get("email");
-        String password = (String) userMap.get("password");
-
-        User user = userService.validateUser(email, password);
+    public ResponseEntity<Map<String, String>> loginUser(@RequestBody User userMap) {
+        User user = userService.validateUser(userMap.email(), userMap.password());
         return new ResponseEntity<>(generateJWTToken(user), HttpStatus.OK);
     }
 
     @PostMapping("/register")
-    public ResponseEntity<Map<String, String>> registerUser(@RequestBody Map<String, Object> userMap) {
-        String firstName = (String) userMap.get("firstName");
-        String lastName = (String) userMap.get("lastName");
-        String email = (String) userMap.get("email");
-        String password = (String) userMap.get("password");
-
-        User user = userService.registerUser(firstName, lastName, email, password);
+    public ResponseEntity<Map<String, String>> registerUser(@RequestBody User userMap) {
+        User user = userService.registerUser(userMap.firstName(), userMap.lastName(), userMap.email(),
+                userMap.password());
         return new ResponseEntity<>(generateJWTToken(user), HttpStatus.OK);
     }
 
