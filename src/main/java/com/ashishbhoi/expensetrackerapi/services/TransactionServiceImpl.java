@@ -1,10 +1,9 @@
 package com.ashishbhoi.expensetrackerapi.services;
 
-import com.ashishbhoi.expensetrackerapi.models.Transaction;
 import com.ashishbhoi.expensetrackerapi.exceptions.EtBadRequestException;
 import com.ashishbhoi.expensetrackerapi.exceptions.EtResourceNotFoundException;
+import com.ashishbhoi.expensetrackerapi.models.Transaction;
 import com.ashishbhoi.expensetrackerapi.repositories.TransactionRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,8 +13,11 @@ import java.util.List;
 @Transactional
 public class TransactionServiceImpl implements TransactionService {
 
-    @Autowired
-    TransactionRepository transactionRepository;
+    private final TransactionRepository transactionRepository;
+
+    public TransactionServiceImpl(TransactionRepository transactionRepository) {
+        this.transactionRepository = transactionRepository;
+    }
 
     @Override
     public List<Transaction> fetchAllTransactions(Integer userId, Integer categoryId)

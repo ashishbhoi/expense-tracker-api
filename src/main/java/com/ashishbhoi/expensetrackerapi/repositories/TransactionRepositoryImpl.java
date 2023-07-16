@@ -1,9 +1,8 @@
 package com.ashishbhoi.expensetrackerapi.repositories;
 
-import com.ashishbhoi.expensetrackerapi.models.Transaction;
 import com.ashishbhoi.expensetrackerapi.exceptions.EtBadRequestException;
 import com.ashishbhoi.expensetrackerapi.exceptions.EtResourceNotFoundException;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.ashishbhoi.expensetrackerapi.models.Transaction;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
@@ -43,8 +42,11 @@ public class TransactionRepositoryImpl implements TransactionRepository {
     ));
 
 
-    @Autowired
-    JdbcTemplate jdbcTemplate;
+    private final JdbcTemplate jdbcTemplate;
+
+    public TransactionRepositoryImpl(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
 
     @Override
     public List<Transaction> findAll(Integer userId, Integer categoryId) throws EtResourceNotFoundException {

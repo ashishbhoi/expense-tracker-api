@@ -1,9 +1,8 @@
 package com.ashishbhoi.expensetrackerapi.repositories;
 
-import com.ashishbhoi.expensetrackerapi.models.User;
 import com.ashishbhoi.expensetrackerapi.exceptions.EtAuthException;
+import com.ashishbhoi.expensetrackerapi.models.User;
 import org.mindrot.jbcrypt.BCrypt;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
@@ -32,8 +31,12 @@ public class UserRepositoryImpl implements UserRepository {
             rs.getString("EMAIL"),
             rs.getString("PASSWORD")
     ));
-    @Autowired
-    JdbcTemplate jdbcTemplate;
+    private final JdbcTemplate jdbcTemplate;
+
+    public UserRepositoryImpl(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
+
 
     @Override
     public Integer create(String firstName, String lastName, String email, String password) throws EtAuthException {

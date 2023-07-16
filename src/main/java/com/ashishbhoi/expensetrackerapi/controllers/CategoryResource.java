@@ -3,7 +3,6 @@ package com.ashishbhoi.expensetrackerapi.controllers;
 import com.ashishbhoi.expensetrackerapi.models.Category;
 import com.ashishbhoi.expensetrackerapi.services.CategoryService;
 import jakarta.servlet.http.HttpServletRequest;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,8 +14,11 @@ import java.util.Map;
 @RequestMapping("/api/categories")
 public class CategoryResource {
 
-    @Autowired
-    CategoryService categoryService;
+    private final CategoryService categoryService;
+
+    public CategoryResource(CategoryService categoryService) {
+        this.categoryService = categoryService;
+    }
 
     @GetMapping("")
     public ResponseEntity<List<Category>> getAllCategories(HttpServletRequest request) {

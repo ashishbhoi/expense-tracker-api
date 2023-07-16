@@ -3,7 +3,6 @@ package com.ashishbhoi.expensetrackerapi.controllers;
 import com.ashishbhoi.expensetrackerapi.models.Transaction;
 import com.ashishbhoi.expensetrackerapi.services.TransactionService;
 import jakarta.servlet.http.HttpServletRequest;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,8 +14,11 @@ import java.util.Map;
 @RequestMapping("/api/categories/{categoryId}/transactions")
 public class TransactionResource {
 
-    @Autowired
-    TransactionService transactionService;
+    private final TransactionService transactionService;
+
+    public TransactionResource(TransactionService transactionService) {
+        this.transactionService = transactionService;
+    }
 
     @GetMapping("")
     public ResponseEntity<List<Transaction>> getAllTransactions(HttpServletRequest request,

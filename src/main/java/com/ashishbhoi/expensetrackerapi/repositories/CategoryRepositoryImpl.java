@@ -1,9 +1,8 @@
 package com.ashishbhoi.expensetrackerapi.repositories;
 
-import com.ashishbhoi.expensetrackerapi.models.Category;
 import com.ashishbhoi.expensetrackerapi.exceptions.EtBadRequestException;
 import com.ashishbhoi.expensetrackerapi.exceptions.EtResourceNotFoundException;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.ashishbhoi.expensetrackerapi.models.Category;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
@@ -50,8 +49,11 @@ public class CategoryRepositoryImpl implements CategoryRepository {
             rs.getDouble("TOTAL_EXPENSE")
     ));
 
-    @Autowired
-    JdbcTemplate jdbcTemplate;
+    private final JdbcTemplate jdbcTemplate;
+
+    public CategoryRepositoryImpl(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
 
     @Override
     public List<Category> findAll(Integer userId) throws EtResourceNotFoundException {
