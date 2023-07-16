@@ -1,6 +1,6 @@
 package com.ashishbhoi.expensetrackerapi.repositories;
 
-import com.ashishbhoi.expensetrackerapi.domain.User;
+import com.ashishbhoi.expensetrackerapi.models.User;
 import com.ashishbhoi.expensetrackerapi.exceptions.EtAuthException;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,6 @@
 package com.ashishbhoi.expensetrackerapi.repositories;
 
-import com.ashishbhoi.expensetrackerapi.domain.Category;
+import com.ashishbhoi.expensetrackerapi.models.Category;
 import com.ashishbhoi.expensetrackerapi.exceptions.EtBadRequestException;
 import com.ashishbhoi.expensetrackerapi.exceptions.EtResourceNotFoundException;
 

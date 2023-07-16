@@ -1,6 +1,6 @@
 package com.ashishbhoi.expensetrackerapi.repositories;
 
-import com.ashishbhoi.expensetrackerapi.domain.Transaction;
+import com.ashishbhoi.expensetrackerapi.models.Transaction;
 import com.ashishbhoi.expensetrackerapi.exceptions.EtBadRequestException;
 import com.ashishbhoi.expensetrackerapi.exceptions.EtResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;

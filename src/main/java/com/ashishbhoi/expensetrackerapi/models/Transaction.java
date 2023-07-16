@@ -1,4 +1,4 @@
-package com.ashishbhoi.expensetrackerapi.domain;
+package com.ashishbhoi.expensetrackerapi.models;
 
 public class Transaction {
 

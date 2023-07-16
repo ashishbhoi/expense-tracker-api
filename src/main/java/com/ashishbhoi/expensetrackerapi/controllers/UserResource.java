@@ -1,7 +1,7 @@
-package com.ashishbhoi.expensetrackerapi.resources;
+package com.ashishbhoi.expensetrackerapi.controllers;
 
 import com.ashishbhoi.expensetrackerapi.Constants;
-import com.ashishbhoi.expensetrackerapi.domain.User;
+import com.ashishbhoi.expensetrackerapi.models.User;
 import com.ashishbhoi.expensetrackerapi.services.UserService;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;

@@ -1,6 +1,6 @@
-package com.ashishbhoi.expensetrackerapi.resources;
+package com.ashishbhoi.expensetrackerapi.controllers;
 
-import com.ashishbhoi.expensetrackerapi.domain.Transaction;
+import com.ashishbhoi.expensetrackerapi.models.Transaction;
 import com.ashishbhoi.expensetrackerapi.services.TransactionService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;

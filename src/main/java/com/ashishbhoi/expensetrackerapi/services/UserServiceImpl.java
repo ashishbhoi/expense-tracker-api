@@ -1,6 +1,6 @@
 package com.ashishbhoi.expensetrackerapi.services;
 
-import com.ashishbhoi.expensetrackerapi.domain.User;
+import com.ashishbhoi.expensetrackerapi.models.User;
 import com.ashishbhoi.expensetrackerapi.exceptions.EtAuthException;
 import com.ashishbhoi.expensetrackerapi.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
